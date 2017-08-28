@@ -8,6 +8,7 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'rust-lang/rust.vim'
 Plugin 'tikhomirov/vim-glsl'
+Plugin 'mustache/vim-mustache-handlebars'
 call vundle#end()
 filetype plugin indent on
 if has("syntax")
