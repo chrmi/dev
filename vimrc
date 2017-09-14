@@ -23,7 +23,7 @@ set nobackup
 set nowritebackup
 set noswapfile
 set number
-set softtabstop=4
+set softtabstop=2
 set shiftwidth=4
 set tabstop=4
 set autoindent
@@ -36,3 +36,5 @@ set splitright
 set autoread
 set backspace=2
 set wildmenu
+set cursorline
+set showmatch
