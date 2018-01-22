@@ -3,12 +3,9 @@ filetype off
 set rtp+=/root/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'scrooloose/nerdtree'
-Plugin 'pangloss/vim-javascript'
-Plugin 'leafgarland/typescript-vim'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'rust-lang/rust.vim'
 Plugin 'tikhomirov/vim-glsl'
-Plugin 'mustache/vim-mustache-handlebars'
 call vundle#end()
 filetype plugin indent on
 if has("syntax")
@@ -23,7 +20,7 @@ set nobackup
 set nowritebackup
 set noswapfile
 set number
-set softtabstop=2
+set softtabstop=4
 set shiftwidth=4
 set tabstop=4
 set autoindent
@@ -36,5 +33,4 @@ set splitright
 set autoread
 set backspace=2
 set wildmenu
-set cursorline
 set showmatch
