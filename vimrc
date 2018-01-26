@@ -2,6 +2,8 @@ set nocompatible
 filetype off
 set rtp+=/root/.vim/bundle/Vundle.vim
 call vundle#begin()
+Plugin 'vim-scripts/conque-gdb'
+Plugin 'vim-scripts/conque-shell'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'rust-lang/rust.vim'
