@@ -1,18 +1,22 @@
 set nocompatible
 filetype off
-set rtp+=/root/.vim/bundle/Vundle.vim
+set rtp+=$HOME/.vim/bundle/Vundle.vim
 call vundle#begin()
-Plugin 'vim-scripts/conque-gdb'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-syntastic/syntastic'
+Plugin 'fatih/vim-go'
 Plugin 'rust-lang/rust.vim'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'mxw/vim-jsx'
 Plugin 'tikhomirov/vim-glsl'
 call vundle#end()
 filetype plugin indent on
 if has("syntax")
-  syntax on
+  syntax enable
 endif
-colorscheme desert
+colorscheme gruvbox
+set encoding=utf-8
+set t_Co=256
 set background=dark
 set history=5000
 set undolevels=5000
@@ -21,9 +25,9 @@ set nobackup
 set nowritebackup
 set noswapfile
 set number
-set softtabstop=4
-set shiftwidth=4
-set tabstop=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set autoindent
 set copyindent
 set expandtab
@@ -40,3 +44,4 @@ set noerrorbells visualbell t_vb=
 if has('autocmd')
     autocmd GUIEnter * set visualbell t_vb=
 endif
+let g:jsx_ext_required = 0
