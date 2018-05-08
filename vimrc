@@ -7,8 +7,6 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'fatih/vim-go'
 Plugin 'rust-lang/rust.vim'
 Plugin 'leafgarland/typescript-vim'
-Plugin 'mxw/vim-jsx'
-Plugin 'tikhomirov/vim-glsl'
 call vundle#end()
 filetype plugin indent on
 if has("syntax")
@@ -44,4 +42,3 @@ set noerrorbells visualbell t_vb=
 if has('autocmd')
     autocmd GUIEnter * set visualbell t_vb=
 endif
-let g:jsx_ext_required = 0
