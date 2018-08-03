@@ -1,14 +1,14 @@
-set nocompatible
-filetype off
-set rtp+=$HOME/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'scrooloose/nerdtree'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'fatih/vim-go'
-Plugin 'rust-lang/rust.vim'
-Plugin 'leafgarland/typescript-vim'
-call vundle#end()
-filetype plugin indent on
+call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/nerdtree'
+Plug 'w0rp/ale'
+Plug 'fatih/vim-go'
+Plug 'rust-lang/rust.vim'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'mhartington/nvim-typescript'
+Plug 'roxma/nvim-yarp'
+Plug 'morhetz/gruvbox'
+let g:deoplete#enable_at_startup = 1
+call plug#end()
 if has("syntax")
   syntax enable
 endif
