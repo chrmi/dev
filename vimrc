@@ -3,12 +3,9 @@ Plug 'scrooloose/nerdtree'
 Plug 'w0rp/ale'
 Plug 'fatih/vim-go'
 Plug 'rust-lang/rust.vim'
-Plug 'HerringtonDarkholme/yats.vim'
-Plug 'mhartington/nvim-typescript'
-Plug 'roxma/nvim-yarp'
-Plug 'morhetz/gruvbox'
-let g:deoplete#enable_at_startup = 1
+Plug 'leafgarland/typescript-vim'
 call plug#end()
+filetype plugin indent on
 if has("syntax")
   syntax enable
 endif
