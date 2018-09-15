@@ -1,10 +1,13 @@
-call plug#begin('$HOME/.vim/plugged')
-Plug 'scrooloose/nerdtree'
-Plug 'w0rp/ale'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'rust-lang/rust.vim'
-Plug 'leafgarland/typescript-vim'
-call plug#end()
+set nocompatible
+filetype off
+set rtp+=$HOME/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'scrooloose/nerdtree'
+Plugin 'w0rp/ale'
+Plugin 'fatih/vim-go'
+Plugin 'rust-lang/rust.vim'
+Plugin 'HerringtonDarkholme/yats.vim'
+call vundle#end()
 filetype plugin indent on
 if has("syntax")
   syntax enable
@@ -20,9 +23,9 @@ set nobackup
 set nowritebackup
 set noswapfile
 set number
-set tabstop=2
+set tabstop=4
 set softtabstop=2
-set shiftwidth=2
+set shiftwidth=4
 set autoindent
 set copyindent
 set expandtab
