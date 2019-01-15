@@ -3,10 +3,8 @@ filetype off
 set rtp+=$HOME/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'scrooloose/nerdtree'
-Plugin 'w0rp/ale'
 Plugin 'fatih/vim-go'
 Plugin 'rust-lang/rust.vim'
-Plugin 'HerringtonDarkholme/yats.vim'
 call vundle#end()
 filetype plugin indent on
 if has("syntax")
@@ -38,7 +36,9 @@ set backspace=2
 set wildmenu
 set showmatch
 set spell
+set list
 set noerrorbells visualbell t_vb=
 if has('autocmd')
     autocmd GUIEnter * set visualbell t_vb=
 endif
+let g:go_version_warning=0
