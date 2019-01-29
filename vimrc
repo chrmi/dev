@@ -42,3 +42,4 @@ if has('autocmd')
     autocmd GUIEnter * set visualbell t_vb=
 endif
 let g:go_version_warning=0
+let NERDTreeShowHidden=1
