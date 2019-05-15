@@ -5,6 +5,7 @@ call vundle#begin()
 Plugin 'scrooloose/nerdtree'
 Plugin 'fatih/vim-go'
 Plugin 'rust-lang/rust.vim'
+Plugin 'hashivim/vim-terraform'
 call vundle#end()
 filetype plugin indent on
 if has("syntax")
@@ -21,9 +22,9 @@ set nobackup
 set nowritebackup
 set noswapfile
 set number
-set tabstop=4
+set tabstop=2
 set softtabstop=2
-set shiftwidth=4
+set shiftwidth=2
 set autoindent
 set copyindent
 set expandtab
