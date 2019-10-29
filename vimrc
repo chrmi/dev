@@ -5,8 +5,10 @@ call vundle#begin()
 Plugin 'scrooloose/nerdtree'
 Plugin 'fatih/vim-go'
 Plugin 'rust-lang/rust.vim'
+Plugin 'stephpy/vim-yaml'
 Plugin 'hashivim/vim-terraform'
 Plugin 'sudar/vim-arduino-syntax'
+Plugin 'Rigellute/shades-of-purple.vim'
 call vundle#end()
 
 filetype plugin indent on
@@ -14,7 +16,11 @@ if has("syntax")
   syntax enable
 endif
 
-colorscheme gruvbox
+if (has("termguicolors"))
+  set termguicolors
+endif
+
+colorscheme shades_of_purple
 
 set encoding=utf-8
 set t_Co=256
@@ -26,9 +32,9 @@ set nobackup
 set nowritebackup
 set noswapfile
 set number
-set tabstop=2
+set tabstop=4
 set softtabstop=2
-set shiftwidth=2
+set shiftwidth=4
 set expandtab
 set autoindent
 set copyindent
@@ -50,7 +56,3 @@ endif
 
 let g:go_version_warning=0
 let NERDTreeShowHidden=1
-set listchars=tab:\|\ ,trail:-,extends:>,precedes:<,nbsp:+
-
-com! FJ %!jq '.'
-com! FT set et|retab

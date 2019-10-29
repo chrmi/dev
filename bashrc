@@ -1,5 +1,4 @@
 alias python='python3'
-alias py='python3'
 
 alias gp='grep -rn --color=auto'
 alias gpi='grep -rni --color=auto'
