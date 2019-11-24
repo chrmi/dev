@@ -9,6 +9,7 @@ Plugin 'stephpy/vim-yaml'
 Plugin 'hashivim/vim-terraform'
 Plugin 'sudar/vim-arduino-syntax'
 Plugin 'Rigellute/shades-of-purple.vim'
+Plugin 'morhetz/gruvbox'
 call vundle#end()
 
 filetype plugin indent on
@@ -47,7 +48,6 @@ set backspace=2
 set wildmenu
 set showmatch
 set spell
-set list
 
 set noerrorbells visualbell t_vb=
 if has('autocmd')
