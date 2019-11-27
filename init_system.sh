@@ -7,8 +7,8 @@ fi
 
 apt-get update
 apt-get upgrade -y
-apt-get update && sudo apt-get install -y vim tmux wget curl tree watch cmake \
-    software-properties-common build-essential git zlib1g-dev libffi-dev \
+apt-get update && sudo apt-get install -y vim tmux wget curl tree watch git \
+    software-properties-common build-essential cmake zlib1g-dev libffi-dev \
     python-dev python-pip python3 python3-pip python3-venv
 
 add-apt-repository ppa:gophers/archive
