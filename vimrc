@@ -8,8 +8,6 @@ Plugin 'rust-lang/rust.vim'
 Plugin 'stephpy/vim-yaml'
 Plugin 'hashivim/vim-terraform'
 Plugin 'sudar/vim-arduino-syntax'
-Plugin 'Rigellute/shades-of-purple.vim'
-Plugin 'morhetz/gruvbox'
 call vundle#end()
 
 filetype plugin indent on
@@ -21,7 +19,7 @@ if (has("termguicolors"))
   set termguicolors
 endif
 
-colorscheme shades_of_purple
+colorscheme gruvbox
 
 set encoding=utf-8
 set t_Co=256
