@@ -1,17 +1,24 @@
 #!/bin/bash
 
-VOLUMES="-v $(pwd)/pub:/home/d/pub -v $HOME/.ssh:/home/d/.ssh -v $HOME/.aws:/home/d/.aws -v $HOME/.gitconfig:/home/d/.gitconfig"
-OPTIONS="--network bridge --cap-add=SYS_PTRACE --security-opt seccomp=unconfined"
-PORTS="-p:8097:8097 -p:8098:8098 -p:8099:8099"
+VOLUMES="-v $(pwd)/src:/home/me/src \
+        -v $(pwd)/logs:/home/me/logs \
+        -v $HOME/.ssh:/home/me/.ssh \
+        -v $HOME/.aws:/home/me/.aws \
+        -v $HOME/.gitconfig:/home/me/.gitconfig"
+
+OPTIONS="--network bridge --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --env-file=ports.env"
+
+PORTS="-p:8998:8998"
+
 CONTAINERIMAGE="dev"
 CONTAINERTAG="a"
 
 case "$1" in
     -b|--build)
-        mkdir pub ; docker build --no-cache -t $CONTAINERIMAGE/$CONTAINERTAG .
+        docker build --no-cache -t $CONTAINERIMAGE/$CONTAINERTAG .
         ;;
 
-    -r|--rebuild)
+    -u|--update)
         docker build -t $CONTAINERIMAGE/$CONTAINERTAG .
         ;;
 
@@ -19,11 +26,19 @@ case "$1" in
         docker rmi -f $CONTAINERIMAGE/$CONTAINERTAG
         ;;
 
+    -r|--run)
+        docker run -d -it --rm=true $VOLUMES $PORTS $OPTIONS $CONTAINERIMAGE/$CONTAINERTAG
+        ;;
+
+    -x|--exit)
+        docker stop $(docker ps -q --filter ancestor=$CONTAINERIMAGE/$CONTAINERTAG )
+        ;;
+
     -s|--shell)
-        docker run --rm=false -it $VOLUMES $PORTS $OPTIONS $NODE --rm=true $CONTAINERIMAGE/$CONTAINERTAG /bin/bash
+        docker run -it --rm=true $VOLUMES $PORTS $OPTIONS $CONTAINERIMAGE/$CONTAINERTAG /bin/bash
         ;;
 
     *)
-        echo $"Usage: $0 { build | rebuild | delete | shell| }"
+        echo $"Usage: $0 { [b] build | [u] update | [d] delete | [r] run | [x] exit | [s] shell }"
         exit 1
 esac
