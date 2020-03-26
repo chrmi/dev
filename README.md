@@ -13,7 +13,7 @@
 ## Getting Started
 * Install Docker via [Docker.com](https://docs.docker.com/install/) or use [build.sh](https://github.com/chrmi/dev/blob/master/install.sh).
 * Configure [vimrc](https://github.com/chrmi/dev/blob/master/vimrc), [tmux.conf](https://github.com/chrmi/dev/blob/master/tmux.conf), [bashrc.sh](https://github.com/chrmi/dev/blob/master/bashrc.sh) to taste.
-* Create service account in GCP (optional, use `./dock.sh -sg` instead of `./dock.sh -s` ).
+* Create service account in GCP (optional, use `./dock.sh -sg` instead of `./dock.sh -s`).
   * Generate JSON credentials.  Place in auth/gcp.json
   * Add account details in gcp.env
   * Customize [Dockerfile](https://github.com/chrmi/dev/blob/master/Dockerfile) as needed.
@@ -21,7 +21,7 @@
      * Note that if you haven't created a cluster yet, this will show a hardmless error the first time.  Making changes to this requires re-building the container, which is no big deal.
   * Finally, use [dock.sh](https://github.com/chrmi/dev/blob/master/dock.sh) to work with the container.
     * First time sequence: build, shell.  If changing init.sh, you can update and shell; but if there are issues, build for a clean slate.
-  * Files in [src](https://github.com/chrmi/dev/tree/master/src) are mounted as a volume and persisted, even with a clean build of the container.
+  * Files in are mounted as a volume and persisted, even with a clean build of the container.
 
 ## Example Workflow
   * Shell into the running container.
