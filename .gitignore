@@ -1,2 +1,5 @@
 logs
 src
+misc.env
+gcp.env
+auth/**/*
