@@ -5,5 +5,5 @@ gcloud auth activate-service-account $GCP_ACCOUNT --key-file=/home/me/auth/gcp.j
 gcloud config set project $GCP_PROJECT
 gcloud container clusters get-credentials $GCP_CLUSTER --zone $GCP_REGION
 
-# Start tmux on SSH if desired.
+# Auto start tmux if desired.
 # tmux
