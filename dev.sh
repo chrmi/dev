@@ -16,18 +16,19 @@ PORTS="-p:8998:8998"
 OPTIONS="--network bridge --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --env-file=misc.env"
 
 # For local system organization.
-CONTAINER_IMAGE="dev"
+CONTAINER_IMAGE="chrmi-dev"
 
 # Have many copies based on different development circumstances.
 CONTAINER_TAG="a"
 
 case "$1" in
-    # Build from scratch.  Clean install if things get wonky.
+    # Build from scratch (assumes at least multistage base is built).  Clean install if things get wonky.
     -b|--build)
+        docker build -t chrmi-dev-base/$CONTAINER_TAG ./base && \
         docker build --no-cache -t $CONTAINER_IMAGE/$CONTAINER_TAG .
         ;;
 
-    # Build but persist when possible.  I.e. don't download Ubuntu again to update a port map.
+    # Build but persist when possible.  I.e. don't download Ubuntu + apt-gets again to update a port mapping.
     -u|--update)
         docker build -t $CONTAINER_IMAGE/$CONTAINER_TAG .
         ;;
