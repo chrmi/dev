@@ -1,2 +1,4 @@
-multistage/*
+base/*
 src/*
+auth/*
+logs/*
