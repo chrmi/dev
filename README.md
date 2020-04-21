@@ -6,14 +6,15 @@
 * Kubernetes (i.e. kubectl).
 * Terraform (i.e. setting up a GKE cluster, GCP Cloud Storage, or a Google Container Registry).
 * Helm (i.e. deploying Nginx chart to GKE).
-* C++ (g++, Google Test, Microsoft C++ Rest SDK, Boost).
+* C++ (g++, Clang, Google Test, Microsoft C++ Rest SDK, Boost).
+* Go (Golang)
 * Rust + Cargo
 * Python + PIP
 
 ## Getting Started
 * Install Docker via [Docker.com](https://docs.docker.com/install/) or use [build.sh](https://github.com/chrmi/dev/blob/master/install.sh).
 * Configure [vimrc](https://github.com/chrmi/dev/blob/master/vimrc), [tmux.conf](https://github.com/chrmi/dev/blob/master/tmux.conf), [bashrc.sh](https://github.com/chrmi/dev/blob/master/bashrc.sh) to taste.
-* Create service account in GCP (optional, use `./dock.sh -sg` instead of `./dock.sh -s`).
+* Create service account in GCP.
   * Generate JSON credentials.  Place in auth/gcp.json
   * Add account details in gcp.env
   * Customize [Dockerfile](https://github.com/chrmi/dev/blob/master/Dockerfile) as needed.
@@ -34,6 +35,7 @@ Added to .gitignore, and intended (along with volume mounts) to house all privat
 
 All else in misc.env (as example):
 ```
+GOPATH=/home/me/src/go
 APIPORT=8998
 LOGGER_STDOUT=true
 LOGGER_BIGTABLE=true

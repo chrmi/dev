@@ -4,8 +4,12 @@ FROM ubuntu as base
 RUN apt-get update && apt-get install -y curl tar wget tmux vim tree watch git unzip \
     # Python development
     python-dev python-pip python3 python3-pip python3-venv \
-    # C++ development
+    # C++ development (GNU)
     software-properties-common build-essential gcc g++ make cmake ninja-build \
+    # C++ development (Clang)
+    clang-format clang-tidy clang-tools clang libc++-dev \
+    libc++1 libc++abi-dev libc++abi1 libclang-dev libclang1 \
+    libomp-dev libomp5 lld lldb llvm-dev llvm-runtime llvm \
     # Google Test: https://github.com/google/googletest
     libgtest-dev \
     # Microsoft C++ Rest SDK and dependencies: https://github.com/microsoft/cpprestsdk

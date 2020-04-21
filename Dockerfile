@@ -1,6 +1,6 @@
 FROM chrmi-dev-base/a as base
 
-# A few ports for development.  Mapped in dev.sh
+# For running services locally in SSH (for development debugging).
 EXPOSE 8097
 EXPOSE 8098
 EXPOSE 8099
@@ -78,5 +78,3 @@ RUN mkdir -p /home/me/.vim/colors && \
     git clone https://github.com/VundleVim/Vundle.vim.git /home/me/.vim/bundle/Vundle.vim && \
     vim +'PluginInstall' +qa
 
-# For running services locally in SSH (for development debugging).
-EXPOSE 8998
