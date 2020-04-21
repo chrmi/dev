@@ -10,7 +10,7 @@ VOLUMES="-v $(pwd)/src:/home/me/src \
 
 # Mapping for development debugging.
 # NOTE: Cannot map ports over multiple SSH sessions.
-PORTS="-p:8998:8998"
+PORTS="-p 8097:8097 -p 8098:8098 =p 8099:8099 -p:8998:8998"
 
 # Set up for local development, not production.  Control system state with environment variables.
 OPTIONS="--network bridge --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --env-file=misc.env"
@@ -20,6 +20,9 @@ CONTAINER_IMAGE="chrmi-dev"
 
 # Have many copies based on different development circumstances.
 CONTAINER_TAG="a"
+
+# Define port mapping from application outside of container
+PORTS="-p:8097:8097 -p:8098:8098 -p:8099:8099"
 
 case "$1" in
     # Build from scratch (assumes at least multistage base is built).  Clean install if things get wonky.
@@ -51,15 +54,10 @@ case "$1" in
     # SSH into the container for development.  Intended to use for compiling and using system specifics;
     # although you could use tmux and vim for a full IDE-like experience in a pinch.
     -s|--shell)
-        docker run -it --rm=true $VOLUMES $PORTS $OPTIONS $CONTAINER_IMAGE/$CONTAINER_TAG /bin/bash
-        ;;
-
-    # SSH with GCP flags enabled.  Use this for gcloud, Helm and Terraform.
-    -sg|--shell-gcp)
         docker run -it --rm=true $VOLUMES $PORTS $OPTIONS --env-file=gcp.env $CONTAINER_IMAGE/$CONTAINER_TAG /bin/bash
         ;;
 
     *)
-        echo $"Usage: $0 { [b] build | [u] update | [d] delete | [r] run | [x] exit | [s] shell [sg] shell gcp }"
+        echo $"Usage: $0 { [b] build | [u] update | [d] delete | [r] run | [x] exit | [s] shell }"
         exit 1
 esac

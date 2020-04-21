@@ -1,5 +1,11 @@
 FROM chrmi-dev-base/a as base
 
+# A few ports for development.  Mapped in dev.sh
+EXPOSE 8097
+EXPOSE 8098
+EXPOSE 8099
+EXPOSE 8998
+
 # Install Google Cloud SDK.
 RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list && curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg  add - && apt-get update -y && apt-get install google-cloud-sdk kubectl -y
 
@@ -21,6 +27,9 @@ RUN curl -o tf.zip https://releases.hashicorp.com/terraform/0.12.24/terraform_0.
     mv terraform /usr/bin && \
     rm tf.zip
 
+# Install Go
+RUN curl https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz | tar -C /usr/local -xz
+
 # Create user
 RUN useradd -m -s /bin/bash me
 
@@ -32,8 +41,8 @@ WORKDIR /home/me
 
 ENV USER=me
 
-# Set path for Cargo (Rust), local/bin for Pip (Python).
-ENV PATH="/home/me/.cargo/bin:/home/me/.local/bin:${PATH}"
+# Set path for Cargo (Rust), local/bin for Pip (Python), /usr/local/go/bin (Go).
+ENV PATH="/usr/local/go/bin:/home/me/.cargo/bin:/home/me/.local/bin:${PATH}"
 
 # Retain colors within SSH.
 ENV TERM screen-256color

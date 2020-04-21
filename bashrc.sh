@@ -30,3 +30,11 @@ tfrefresh() {
 tfdestroy() {
     terraform destroy
 }
+
+switch_cluster() {
+    if [ $# -eq 1 ]; then
+        gcloud container clusters get-credentials $1 --zone $GCP_REGION
+    else
+        echo $"Usage: $0 cluster-name"
+    fi
+}
