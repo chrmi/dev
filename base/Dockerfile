@@ -1,9 +1,11 @@
-FROM ubuntu as base
+FROM ubuntu:19.10 as base
 
 # General updates & tools
 RUN apt-get update && apt-get install -y curl tar wget tmux vim tree watch git unzip \
     # Python development
-    python-dev python-pip python3 python3-pip python3-venv \
+    python-dev python3 python3-pip python3-venv python-pip \
+    # Azure CLI
+    ca-certificates apt-transport-https lsb-release gnupg \
     # C++ development (GNU)
     software-properties-common build-essential gcc g++ make cmake ninja-build \
     # C++ development (Clang)
@@ -19,7 +21,5 @@ RUN apt-get update && apt-get install -y curl tar wget tmux vim tree watch git u
     libboost-regex-dev libboost-filesystem-dev libboost-random-dev libboost-chrono-dev \
     libboost-serialization-dev libwebsocketpp-dev openssl libssl-dev \
     # Google Cloud C++ Common (previously required removed): https://github.com/googleapis/google-cloud-cpp-common
-    apt-transport-https apt-utils automake ca-certificates \
-    libc-ares-dev libc-ares2 libcurl4-openssl-dev m4 pkg-config \
-    # Additional for Azure CLI
-    lsb-release gnupg
+    apt-utils automake  \
+    libc-ares-dev libc-ares2 libcurl4-openssl-dev m4 pkg-config

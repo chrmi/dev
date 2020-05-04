@@ -55,7 +55,7 @@ RUN helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 RUN helm repo add bitnami https://charts.bitnami.com/bitnami
 RUN helm repo update
 
-# Install PIP.
+# Install AWS CLI.
 RUN pip install awscli --upgrade --user
 
 # Download gRPC Root Cert for GPC C++ SDK
