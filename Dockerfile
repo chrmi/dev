@@ -30,6 +30,9 @@ RUN curl -o tf.zip https://releases.hashicorp.com/terraform/0.12.24/terraform_0.
 # Install Go
 RUN curl https://dl.google.com/go/go1.14.2.linux-amd64.tar.gz | tar -C /usr/local -xz
 
+# Update npm
+RUN npm instal -g npm
+
 # Create user
 RUN useradd -m -s /bin/bash me
 
@@ -49,6 +52,9 @@ ENV TERM screen-256color
 
 # Install Rust.
 RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
+
+# Install npm global dependencies
+RUN npm install -g typescript @angular/cli
 
 # Add public Helm charts.
 RUN helm repo add stable https://kubernetes-charts.storage.googleapis.com/

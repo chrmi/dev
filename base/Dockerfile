@@ -22,4 +22,6 @@ RUN apt-get update && apt-get install -y curl tar wget tmux vim tree watch git u
     libboost-serialization-dev libwebsocketpp-dev openssl libssl-dev \
     # Google Cloud C++ Common (previously required removed): https://github.com/googleapis/google-cloud-cpp-common
     apt-utils automake  \
-    libc-ares-dev libc-ares2 libcurl4-openssl-dev m4 pkg-config
+    libc-ares-dev libc-ares2 libcurl4-openssl-dev m4 pkg-config \
+    # Node / npm
+    nodejs npm
