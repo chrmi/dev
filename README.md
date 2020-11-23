@@ -10,6 +10,7 @@
 * Go (Golang)
 * Rust + Cargo
 * Python + PIP
+* Node + npm
 
 ## Getting Started
 * Install Docker via [Docker.com](https://docs.docker.com/install/) or use [build.sh](https://github.com/chrmi/dev/blob/master/install.sh).
